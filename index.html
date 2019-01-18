@@ -1,0 +1,114 @@
+<html>
+
+<head>
+
+    <title>Calculator html, css, javascript</title>
+    <meta name="author" content="Michał Grochowski">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+          }
+
+        .button {
+            width: 50;
+            height: 50;
+            font-size: 25;
+            margin: 2;
+            cursor: pointer;
+            background: linear-gradient(to bottom, #b39999, #f2333333);
+            color: whitesmoke;
+            border: dotted 1px;
+                }
+
+        .view {
+            width: 216;
+            margin: 5;
+            font-size: 25;
+            padding: 6;
+            background: whitesmoke;
+            border: 1px solid whitesmoke;
+
+              }
+
+        .main {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+              }
+
+        .background {
+            height: 100%;
+            background: linear-gradient(to right, #e91a, #e36f99)
+                    }
+</style>
+
+    <script>
+        function x(number)  {
+            document.form.view.value = document.form.view.value + number
+                            }
+
+        function equal() {
+            var xp = document.form.view.value;
+            
+            if (xp) {
+            document.form.view.value = eval(xp)
+                    }
+                        }
+
+        function clean() {
+            document.form.view.value = '';
+                 }
+
+        function back() {
+            var xp = document.form.view.value;
+            document.form.view.value = xp.substring(0, xp.length - 1);
+                }
+    </script>
+</head>
+
+<body>
+    <div class="background"></div>
+    <div class="main">
+
+        <form name="form">
+            <input class="view" name="view">
+        </form>
+
+        <table>
+            <tr>
+                <td><input class="button" type="button" value="C" onclick="clean()"></td>
+                <td><input class="button" type="button" value="<" onclick="back()"></td>
+                <td><input class="button" type="button" value="/" onclick="x('/')"></td>
+                <td><input class="button" type="button" value="x" onclick="x('x')"></td>
+            </tr>
+            <tr>
+                <td><input class="button" type="button" value="7" onclick="x(7)"></td>
+                <td><input class="button" type="button" value="8" onclick="x(8)"></td>
+                <td><input class="button" type="button" value="9" onclick="x(9)"></td>
+                <td><input class="button" type="button" value="-" onclick="x('-')"></td>
+            </tr>
+            <tr>
+                <td><input class="button" type="button" value="4" onclick="x(4)"></td>
+                <td><input class="button" type="button" value="5" onclick="x(5)"></td>
+                <td><input class="button" type="button" value="6" onclick="x(6)"></td>
+                <td><input class="button" type="button" value="+" onclick="x('+')"></td>
+            </tr>
+            <tr>
+                <td><input class="button" type="button" value="1" onclick="x(1)"></td>
+                <td><input class="button" type="button" value="2" onclick="x(2)"></td>
+                <td><input class="button" type="button" value="3" onclick="x(3)"></td>
+                <td rowspan="5"><input class="button" style="height: 106" type="button" value="=" onclick="equal()"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input class="button" style="width:106; " type="button" value="0" onclick="x(0)"></td>
+                <td><input class="button" type="button" value="." onclick="x('.')"></td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+
+</html>
